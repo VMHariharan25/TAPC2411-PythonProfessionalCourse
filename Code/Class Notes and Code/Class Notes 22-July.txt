@@ -1,0 +1,43 @@
+Conditional Expressions and Statements 
+
+Conditional Statements: 
+1. if 
+2. if-else 
+3. if -elif 
+4. Nested if else 
+
+Note: Indentation 
+    It talks about the higher hierarchy 
+    Indentation -> 1 Tab Space -> 4 space bar (Subjected to Systems) <Archetype> 
+    But indentation can be any type of space bars. 
+
+
+
+1. if statement: 
+Syntax: 
+if(relational Expression): 
+    Line 1
+    Line 2 
+    Line 3 
+
+
+Line number 18, 19, 20 come under Line number 17. 
+Uniform indentiation should be maintained to each individual hierarchy.
+
+2. if - else: 
+
+Syntax: 
+if(condition):
+    True Block 
+else: 
+    False Block 
+
+
+3. if-elif 
+Syntax: 
+if(condition):
+    Block 1
+elif(Condition):
+    Block 2
+else: 
+    Block 3 

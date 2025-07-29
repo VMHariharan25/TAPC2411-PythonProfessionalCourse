@@ -1,0 +1,233 @@
+## Data Structures
+Organization of Data in a general universal way 
+
+List: 
+    Collection of data in ordered fashion 
+
+    - Collection of data -> Can be heterogeneous data; different elements of various data types can be clubed into a single list 
+    - Ordered Fashion -> Indexed; Input order and storing order will be same and unaltered by the interpreter 
+
+    Indexed: Python follows Zero Indexing 
+
+Creation of list: 
+    - Using the square bracket 
+    Syntax: 
+    list_variable = [values seperated by comma]
+
+    Example: 
+    >>> l = [1, 2, 3, 4, "a", "e", "i", "o", "u", True]
+    >>> vowels = ["a", "e", "i", "o", "u"]
+
+    Storage:
+    vowels 
+    Index:       0       1       2       3       4
+    Elements:   "a"     "e"     "i"     "o"     "u"
+    -ve Index:   -5     -4      -3      -2      -1
+
+    Positive Indexing: 
+    n -> Length of list; number of elements in the list 
+    +ve --> from 0 [Constant] to n-1 
+
+
+    Negative indexing: 
+    -ve --> from -n to -1[constant]
+
+    Use Case: 
+    >>> vowels = ["a", "e", "i", "o", "u"]
+    >>> vowels[0] # Subscripting 
+    "a" 
+    Notes: 
+        1. Whenever you wanna access the last element, you can use list_variable[-1] 
+        2. First Elements --> list_variable[0] 
+
+        3. Data structures that allow the indexing and Subscripting is called as iterators 
+        4. Index Conversion: 
+        -ve --> +ve : Add n with the index 
+        >>> vowels = ["a", "e", "i", "o", "u"]
+        >>> vowels[-1] == vowels[-1+5] 
+        
+        +ve --> -ve: Subtract n with the index 
+        >>> vowels[1] == vowels[1-5]
+        True 
+
+    Silicing of List:
+        list_variable[m:n] 
+        --> Take the values from index m to n-1 in the given list 
+
+        >>> vowels
+        ['a', 'e', 'i', 'o', 'u']
+        >>> vowels[1:4]
+        ['e', 'i', 'o']
+        >>> vowels[-1:-4]
+        []  # Null value because, the m <= n
+        >>> vowels[-4:-1]
+        ['e', 'i', 'o']
+        >>> vowels[3:] # Since n is not specified, the entire list in and after the index m, is printed 
+        ['o', 'u']
+        >>> vowels[2:]
+        ['i', 'o', 'u']
+        >>> vowels[:2]
+        ['a', 'e']
+
+        list[m:n:stepsize]
+        >>> vowels[:]
+        ['a', 'e', 'i', 'o', 'u']
+        >>> vowels[::2]
+        ['a', 'i', 'u']
+        >>> vowels[::1]
+        ['a', 'e', 'i', 'o', 'u']
+        >>> vowels[::0]
+        Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        ValueError: slice step cannot be zero
+        >>> vowels[::-1]
+        ['u', 'o', 'i', 'e', 'a']
+
+        RETURN TYPE OF SLICING OPERATION: LIST 
+    
+    Notes: 
+        List is mutable. The elements in the list can be altered (CRUD) 
+        C - Create 
+        R - Read 
+        U - Update 
+        D - Delete
+        CRUD belongs to Database  
+
+    >>> vowels = ["a", "e", "i", "o", "u"]
+    >>> vowels[0] = "p"
+    >>> vowels[:]
+    ['p', 'e', 'i', 'o', 'u']
+
+Methods and attributes associated with the list variable (Object):
+
+1. Number of elements in the list: len - function 
+    Syntax:
+    len(list_object)
+    >>> len(vowels)
+    5
+    # you are passing the object vowels to the function called len() 
+
+Note: 
+To print the attributes (variable) and methods (functions) that are associated with the object, use dir() function. 
+
+dir() --> return the list of attributes and methods associated with the given object 
+
+>>> dir(vowels)
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+
+Note: Attributes and methods associated with the variable are invoked using the "." operator. 
+
+>>> vowels.__class__   # __class__ is an attributes 
+<class 'list'> 
+
+2. sort() method: 
+
+    >>> vowels
+    ['p', 'e', 'i', 'o', 'u']
+    >>> vowels.sort() # Ascending Order 
+    >>> vowels
+    ['e', 'i', 'o', 'p', 'u']
+    >>> vowels.sort(reverse = True)
+    >>> vowels
+    ['u', 'p', 'o', 'i', 'e']
+
+3. pop() method: 
+    stack --> Primary Data strcuture 
+        stack : List/Array, Top Pointer, size 
+        Top Pointers the element at the top of the stack 
+        Operations:
+            Push: 
+                Insert the element on certains Conditions:
+                    Condition 1: 
+                        top pinter == size 
+                        Stack is Full ; Overflow 
+                        insertion does not happen 
+                    Condition 2: 
+                        top pointer < size 
+                        increment the top pointer 
+                        insert the element  
+            Pop: 
+                Condition 1: top pointers >= 0 
+                    remove the top element and 
+                    decrement the top pointer 
+                Conditon 2: top pionter == -1 
+                    Do not pop; Under Flow 
+        
+Insert, Pop and Append: 
+>>> vowels = ["a", "e", "i", "o", "u"]
+>>> vowels.pop()
+'u'
+>>> vowels
+['a', 'e', 'i', 'o']
+>>> vowels.pop()
+'o'
+>>> vowels.pop()
+'i'
+>>> vowels.pop()
+'e'
+>>> vowels.pop()
+'a'
+>>> vowels.pop()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: pop from empty list
+>>> vowels
+[]
+>>> vowels = ["a", "e", "i", "o", "u"]
+>>> vowels
+['a', 'e', 'i', 'o', 'u']
+>>> vowels.append("z")
+>>> vowels
+['a', 'e', 'i', 'o', 'u', 'z']
+>>> vowels.append("x")
+>>> vowels
+['a', 'e', 'i', 'o', 'u', 'z', 'x']
+>>> vowels.insert(1, "b")
+>>> vowels
+['a', 'b', 'e', 'i', 'o', 'u', 'z', 'x']
+
+
+Remove Method:
+Syntax: 
+list_variable.remove(value)
+
+Example: 
+>>> vowels.remove('a')
+>>> vowels
+['b', 'e', 'i', 'o', 'u', 'z', 'x']
+>>> vowels.remove(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+>>> vowels
+['b', 'e', 'i', 'o', 'u', 'z', 'x']
+
+>>> vowels.remove('a')
+>>> vowels
+['b', 'e', 'i', 'o', 'u', 'z', 'x']
+>>> vowels.remove(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+>>> vowels
+['b', 'e', 'i', 'o', 'u', 'z', 'x']
+>>> vowels.remove(vowels[3])
+>>> vowels
+['b', 'e', 'i', 'u', 'z', 'x']
+
+
+for loop and list: 
+
+
+# Creating a list of even numbers till n 
+
+# Receive n 
+n = int(input("Please Enter n: "))
+
+list_even = []
+for i in range(0,n+1, 2): 
+    list_even.append(i)
+
+print(list_even)
+
+

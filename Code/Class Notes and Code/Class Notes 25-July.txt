@@ -1,0 +1,70 @@
+Looping Statements
+Iterators: 
+    Data Structures which holds the data that are iterables i.e., a loop can run through using its indexing.
+
+Range Function: 
+    range(start = 0*, end, step = 1*) 
+    * --> Optional 
+
+Use Case 1: range(a) 
+
+Example:
+range(5) --> 0,1,2,3,4  -> Totally you will be having the 5 values but the end value is not accepted. 
+
+type() ==> <class 'range'>  --> This is not visible explicitly 
+>>> p = range(5)
+>>> type(p) ## type() is used to print the data type of the variable 
+<class 'range'>
+
+To view the inside elements of a range, list() function is used. 
+
+list() => convert the range variable to list. 
+
+>>> list(p)
+[0, 1, 2, 3, 4]  # Step = 1 and start = 0 
+
+Use Case: specifying the start value
+range(2,5) 
+
+>>> list(range(2,5))
+[2, 3, 4]
+
+# Starts at 2 and ends at 4 
+# Last number (end value) is not part of the output. 
+
+Use Case: Step value 
+range(2,10,2)
+# Starts at 2 ends at 9 with incrementing 2 at each step 
+
+
+Use Case: Descending Order 
+range(100, 0, -2)
+
+# Starts at 100, and ends at 1 with decrementing 2 
+
+
+for loop: 
+
+Syntax: 
+for variable in Iterator:
+    Loop Body 
+
+Finding Sum of n Numbers :
+1. Receive n 
+2. sum = 0 
+3. Loop: i = 1 
+4.      sum = sum + i 
+5.      Go To 3 till n 
+6. print sum 
+
+n = int(input("Enter the value n:"))
+sum = 0 
+for i in range(n+1):
+    sum = sum + i 
+
+print(f"The Sum of {n} Numbers is equal to {sum}")
+
+
+
+
+
