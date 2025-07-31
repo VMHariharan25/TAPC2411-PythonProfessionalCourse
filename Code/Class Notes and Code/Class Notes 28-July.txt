@@ -231,3 +231,89 @@ for i in range(0,n+1, 2):
 print(list_even)
 
 
+Tuples: 
+    --> Ordered Collections of Elements 
+    --> Supports heterogenity 
+    --> Immutable; Can not be altered once it is created 
+    --> Indexing is there; Zero Indexing 
+    --> Iterators 
+
+    Creating the Tuples: 
+        ---> Use "(" and ")"
+        ---> tuple_variable = (1,2,"A","i", 9)
+
+    Methods and Attributes associated with the Tuples 
+    >>> dir(tuple_variable)
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+
+    Deleting the Tuple 
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'tuple_variable']
+>>> del(tuple_variable)
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__']
+
+
+Set:
+    --> Unordered collection of elements 
+    --> No indexing 
+    --> repeatitions are merged to one entry 
+    --> Uses Curly Brackets "{}" to create a set
+    --> Mutable; Can be altered
+    --> Heterogeneous data can be stored
+    --> Order of elements is not preserved
+
+    Creating a Set: 
+        set_variable = {1, 2, 3, "A", "B", "C"}
+    >>> set_variable = {1, 2, 3, "A", "B", "C",3 , 2,1}
+    >>> set_variable
+    {1, 2, 3, 'C', 'B', 'A'}
+
+    mathods and attributes associated with the set variable:
+    >>> dir(set_variable)
+['__and__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__iand__', '__init__', '__init_subclass__', '__ior__', '__isub__', '__iter__', '__ixor__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__rand__', '__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__rsub__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__xor__', 'add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint', 'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+
+    Methods: 
+    1. add() method: 
+        Syntax: 
+        set_variable.add(value)
+        Example: 
+        >>> set_variable.add("D")
+        >>> set_variable
+        {1, 2, 3, 'C', 'B', 'A', 'D'}
+
+    2. remove() method: 
+        Syntax: 
+        set_variable.remove(value)
+        Example: 
+        >>> set_variable.remove("A")
+        >>> set_variable
+        {1, 2, 3, 'C', 'B', 'D'}
+        
+    3. pop() method: 
+        Removes and returns an arbitrary element from the set.
+        Note: Since sets are unordered, the element removed is not guaranteed to be the first or last element.
+        Syntax: 
+        set_variable.pop()
+        Example: 
+        >>> set_variable.pop()
+        1
+
+    4. clear() method: 
+        Removes all elements from the set.
+        Syntax: 
+        set_variable.clear()
+        Example: 
+        >>> set_variable.clear()
+        >>> set_variable
+        set()
+    5. union() method: 
+        Combines two sets and returns a new set containing all unique elements from both sets.          
+        Syntax: 
+        set_variable1.union(set_variable2)      
+        Example:    
+        >>> set_variable1 = {1, 2, 3}
+        >>> set_variable2 = {3, 4, 5}
+        >>> set_variable1.union(set_variable2)
+        {1, 2, 3, 4, 5}
+        
