@@ -1,0 +1,149 @@
+\chapter{List}
+
+\section{Introduction to Lists}
+A \textbf{list} in Python is a collection of data in an ordered fashion.
+
+\begin{itemize}
+	\item \textbf{Collection of data}: Lists can hold heterogeneous data; different elements of various data types can be grouped into a single list.
+	\item \textbf{Ordered Fashion}: Lists are indexed; the input order and storing order will be the same and remain unaltered by the interpreter.
+\end{itemize}
+
+\subsection{Indexing in Lists}
+Python follows \textbf{zero-based indexing}:
+\begin{itemize}
+	\item Positive indexing: From $0$ to $n-1$, where $n$ is the length of the list.
+	\item Negative indexing: From $-n$ to $-1$, where $-1$ refers to the last element.
+\end{itemize}
+
+\section{Creating a List}
+Lists are created using square brackets \texttt{[ ]}.
+
+\noindent Syntax:
+\begin{verbatim}
+	list_variable = [value1, value2, ...]
+\end{verbatim}
+
+\noindent Example:
+\begin{verbatim}
+	l = [1, 2, 3, 4, "a", "e", "i", "o", "u", True]
+	vowels = ["a", "e", "i", "o", "u"]
+\end{verbatim}
+
+\noindent Storage Representation:
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c}
+		Index & 0 & 1 & 2 & 3 & 4 \\
+		\hline
+		Element & "a" & "e" & "i" & "o" & "u" \\
+		\hline
+		Negative Index & -5 & -4 & -3 & -2 & -1 \\
+	\end{tabular}
+\end{center}
+
+\subsection{Index Conversion}
+\begin{itemize}
+	\item Negative to Positive: Add $n$ to the index.
+	\item Positive to Negative: Subtract $n$ from the index.
+\end{itemize}
+
+\noindent Example:
+\begin{verbatim}
+	vowels[-1] == vowels[-1 + 5]
+	vowels[1] == vowels[1 - 5]
+\end{verbatim}
+
+\section{Accessing List Elements}
+Elements can be accessed using subscripting:
+\begin{verbatim}
+	vowels[0]  # First element
+	vowels[-1] # Last element
+\end{verbatim}
+
+\section{Slicing of Lists}
+Slicing extracts a portion of a list:
+\begin{verbatim}
+	list_variable[m:n]        # Elements from index m to n-1
+	list_variable[m:n:step]   # With step size
+\end{verbatim}
+
+\noindent Examples:
+\begin{verbatim}
+	vowels = ["a", "e", "i", "o", "u"]
+	vowels[1:4]      # ['e', 'i', 'o']
+	vowels[-4:-1]    # ['e', 'i', 'o']
+	vowels[3:]       # ['o', 'u']
+	vowels[:2]       # ['a', 'e']
+	vowels[::2]      # ['a', 'i', 'u']
+	vowels[::-1]     # ['u', 'o', 'i', 'e', 'a']
+\end{verbatim}
+
+\noindent \textbf{Note}: Step size cannot be zero.
+
+\section{Mutability of Lists}
+Lists are mutable, meaning their elements can be altered (CRUD operations):
+\begin{itemize}
+	\item \textbf{C}reate
+	\item \textbf{R}ead
+	\item \textbf{U}pdate
+	\item \textbf{D}elete
+\end{itemize}
+
+\noindent Example:
+\begin{verbatim}
+	vowels[0] = "p"
+\end{verbatim}
+
+\section{List Functions and Methods}
+
+\subsection{len()}
+Returns the number of elements in a list.
+\begin{verbatim}
+	len(vowels)
+\end{verbatim}
+
+\subsection{dir()}
+Returns all attributes and methods of the object.
+\begin{verbatim}
+	dir(vowels)
+\end{verbatim}
+
+\subsection{sort()}
+Sorts the list in ascending or descending order.
+\begin{verbatim}
+	vowels.sort()
+	vowels.sort(reverse=True)
+\end{verbatim}
+
+\subsection{pop()}
+Removes and returns the last element (or specified index).
+\begin{verbatim}
+	vowels.pop()
+\end{verbatim}
+
+\subsection{append()}
+Adds an element to the end of the list.
+\begin{verbatim}
+	vowels.append("z")
+\end{verbatim}
+
+\subsection{insert()}
+Inserts an element at a given index.
+\begin{verbatim}
+	vowels.insert(1, "b")
+\end{verbatim}
+
+\subsection{remove()}
+Removes the first occurrence of the specified value.
+\begin{verbatim}
+	vowels.remove("a")
+\end{verbatim}
+
+\section{for Loop with Lists}
+\noindent Example: Creating a list of even numbers till $n$.
+\begin{verbatim}
+	n = int(input("Enter n: "))
+	list_even = []
+	for i in range(0, n+1, 2):
+	list_even.append(i)
+	print(list_even)
+\end{verbatim}

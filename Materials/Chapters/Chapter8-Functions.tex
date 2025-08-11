@@ -1,0 +1,171 @@
+\chapter{Functions in Python}
+
+\section{Introduction to Functions}
+In Python, a \textbf{function} is a block of reusable code designed to perform a specific task. Once defined, a function can be invoked multiple times within a program, avoiding code repetition and improving readability.
+
+Functions follow the \textbf{Input $\rightarrow$ Process $\rightarrow$ Output} paradigm:
+\begin{itemize}
+	\item \textbf{Input}: Data provided to the function (parameters/arguments)
+	\item \textbf{Process}: Logic implemented inside the function
+	\item \textbf{Output}: Result returned by the function
+\end{itemize}
+
+\noindent \textbf{Key perspectives of functions:}
+\begin{enumerate}
+	\item \textbf{Function Definition} – How a function is created.
+	\begin{itemize}
+		\item Input: \textbf{Parameters} (also called formal parameters)
+		\item Output: \textbf{Return value}
+	\end{itemize}
+	\item \textbf{Function Call} – How a function is invoked.
+	\begin{itemize}
+		\item Input: \textbf{Arguments} (also called actual parameters)
+		\item Output: The return value is stored in a variable or used directly.
+	\end{itemize}
+\end{enumerate}
+
+\section{Defining a Function}
+The general syntax of defining a function in Python is:
+\begin{verbatim}
+	def function_name(parameters):
+	# Code block
+	return value
+\end{verbatim}
+
+\section{Example 1 – Adding Two Numbers}
+\begin{verbatim}
+	def add_numbers(p, q):
+	sum = p + q
+	return sum
+\end{verbatim}
+
+\noindent \textbf{Function Call Statements:}
+
+\textbf{Method 1: Using variables}
+\begin{verbatim}
+	a = 5
+	b = 10
+	result = add_numbers(a, b)
+	print(f"The sum of {a} and {b} is: {result}")
+\end{verbatim}
+
+\textbf{Method 2: Directly in the print statement}
+\begin{verbatim}
+	print("The sum of %d and %d is: %d" % (a, b, add_numbers(a, b)))
+\end{verbatim}
+
+\section{Parameters and Arguments}
+\begin{itemize}
+	\item \textbf{Parameters}: Variables declared in the function definition (placeholders).
+	\item \textbf{Arguments}: Actual values passed to the function during a call.
+\end{itemize}
+
+\noindent Example: In \texttt{add\_numbers(p, q)}, \texttt{p} and \texttt{q} are parameters.  
+In \texttt{add\_numbers(a, b)}, \texttt{a} and \texttt{b} are arguments.
+
+\noindent \textbf{Rules for passing arguments:}
+\begin{enumerate}
+	\item The number of arguments must match the number of parameters.
+	\item The order of arguments must match the order of parameters.
+	\item Arguments can be passed by position or by keyword.
+\end{enumerate}
+
+\section{Example 2 – Subtracting Two Numbers}
+\begin{verbatim}
+	def subtract_numbers(p, q):
+	difference = p - q
+	return difference
+\end{verbatim}
+
+\textbf{Function Call Examples:}
+\begin{verbatim}
+	x = 15
+	y = 5
+	result_subtract = subtract_numbers(x, y)
+	print(f"The difference between {x} and {y} is: {result_subtract}")
+	
+	>>> subtract_numbers(15, 5)
+	10
+	>>> subtract_numbers(5, 15)
+	-10
+	>>> subtract_numbers(q=5, p=15)  # Keyword arguments
+	10
+\end{verbatim}
+
+\section{Default Parameters}
+A parameter can be assigned a default value, making it optional during a function call.
+\begin{verbatim}
+	def subtract_numbers(p, q=1):
+	difference = p - q
+	return difference
+\end{verbatim}
+
+\section{Practical Example – Even/Odd Check with Multiple Functions}
+\begin{verbatim}
+	def two_input():
+	"""Receive two inputs from the user, convert to integers, and return."""
+	a = input("Enter a: ")
+	b = input("Enter b: ")
+	return int(a), int(b)
+	
+	def even_check(n):
+	if n % 2 == 0:
+	return True
+	else:
+	return False
+	
+	def core_function(a, b):
+	if even_check(a) and even_check(b):
+	return a * b
+	else:
+	return a / b
+	
+	if __name__ == "__main__":
+	p, q = two_input()
+	print(core_function(p, q))
+\end{verbatim}
+
+\section{Recursion – Factorial Example}
+A function can call itself (\textbf{recursion}). Example: Calculating factorial of a number.
+\begin{verbatim}
+	def facto(n):
+	if n == 1:
+	return 1
+	else:
+	return n * facto(n - 1)
+	
+	if __name__ == "__main__":
+	i = int(input("Enter n: "))
+	print(facto(i))
+\end{verbatim}
+
+\section{Optimizing Recursion – Memoization Example}
+Memoization stores already computed results to improve performance.
+\begin{verbatim}
+	fact = {0: 1, 1: 1}
+	
+	def iskey(d, element):
+	list_of_keys = list(d.keys())
+	return element in list_of_keys
+	
+	def facto(n):
+	if iskey(fact, n):
+	return fact[n]
+	else:
+	t = n * facto(n - 1)
+	fact[n] = t
+	return t
+	
+	if __name__ == "__main__":
+	i = int(input("Enter n: "))
+	print(facto(i))
+\end{verbatim}
+
+\section{Summary}
+\begin{itemize}
+	\item Functions improve \textbf{code reuse} and \textbf{readability}.
+	\item Functions have \textbf{parameters} (placeholders) and \textbf{arguments} (actual values).
+	\item Arguments can be passed by \textbf{position} or \textbf{keyword}.
+	\item Functions can be recursive and can use \textbf{memoization} for efficiency.
+	\item Default parameters make function calls more flexible.
+\end{itemize}

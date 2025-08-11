@@ -1,0 +1,163 @@
+\chapter{Sets and Dictionaries}
+
+\section{Introduction}
+A \textbf{dictionary} in Python is a collection of \textbf{key-value pairs}. 
+Each \textbf{key} is unique and used to access its corresponding \textbf{value}. 
+Dictionaries are \textbf{mutable}, meaning they can be updated, added to, or cleared after creation.
+
+\section{Creating a Dictionary}
+Dictionaries can be created using curly braces \{\} or the \texttt{dict()} constructor.
+
+\begin{lstlisting}[language=Python]
+	# Example dictionary
+	d = {"a": 1, "e": 2, "i": 3, "o": 4, "u": 5}
+\end{lstlisting}
+
+\textbf{Interactive Output:}
+\begin{lstlisting}[language=Python]
+	>>> d
+	{'a': 1, 'e': 2, 'i': 3, 'o': 4, 'u': 5}
+\end{lstlisting}
+
+\section{Accessing Dictionary Keys}
+\begin{lstlisting}[language=Python]
+	>>> d.keys()
+	dict_keys(['a', 'e', 'i', 'o', 'u'])
+	>>> type(d.keys())
+	<class 'dict_keys'>
+\end{lstlisting}
+
+Converting to a list:
+\begin{lstlisting}[language=Python]
+	>>> ls = list(d.keys())
+	>>> ls
+	['a', 'e', 'i', 'o', 'u']
+\end{lstlisting}
+
+\section{Adding New Key-Value Pairs}
+\begin{lstlisting}[language=Python]
+	>>> d["z"] = 9
+	>>> d
+	{'a': 1, 'e': 2, 'i': 3, 'o': 4, 'u': 5, 'z': 9}
+\end{lstlisting}
+
+\section{Live Views of Keys and Values}
+When you store the result of \texttt{.keys()} or \texttt{.values()}, the object is a \textbf{live view} of the dictionary.  
+Changes to the dictionary are automatically reflected.
+
+\begin{lstlisting}[language=Python]
+	>>> l = d.keys()
+	>>> d["y"] = 10
+	>>> l
+	dict_keys(['a', 'e', 'i', 'o', 'u', 'z', 'y'])
+\end{lstlisting}
+
+\textbf{Tip:}
+\begin{itemize}
+	\item \texttt{list(d.keys())} $\rightarrow$ static copy
+	\item \texttt{d.keys()} $\rightarrow$ live view
+\end{itemize}
+
+\section{Dictionary Methods}
+\begin{center}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Method} & \textbf{Description} & \textbf{Example} \\
+		\hline
+		\texttt{keys()} & Returns a view of all keys & \texttt{d.keys()} \\
+		\texttt{values()} & Returns a view of all values & \texttt{d.values()} \\
+		\texttt{items()} & Returns (key, value) pairs & \texttt{d.items()} \\
+		\texttt{get(key, default)} & Safely get a value & \texttt{d.get('a', 0)} \\
+		\texttt{fromkeys(iterable, value)} & Create dict from keys with same value & \texttt{dict.fromkeys(['a','b'], 0)} \\
+		\texttt{update(other\_dict)} & Add/overwrite from another dict & \texttt{d.update(\{'x': 6\})} \\
+		\texttt{pop(key)} & Remove and return value for key & \texttt{d.pop('a')} \\
+		\texttt{popitem()} & Remove and return last inserted pair & \texttt{d.popitem()} \\
+		\texttt{clear()} & Remove all items & \texttt{d.clear()} \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\section{Looping Through Dictionaries}
+\begin{lstlisting}[language=Python]
+	# Keys only
+	for key in d:
+	print(key)
+	
+	# Keys and values
+	for key, value in d.items():
+	print(key, value)
+\end{lstlisting}
+
+\section{Advanced Dictionary Operations}
+
+\subsection{Dictionary Comprehensions}
+\begin{lstlisting}[language=Python]
+	# Squares of numbers from 1 to 5
+	squares = {x: x**2 for x in range(1, 6)}
+	print(squares)
+	# Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+\end{lstlisting}
+
+\subsection{Conditional Dictionary Comprehensions}
+\begin{lstlisting}[language=Python]
+	# Only even squares
+	even_squares = {x: x**2 for x in range(1, 6) if x % 2 == 0}
+	# Output: {2: 4, 4: 16}
+\end{lstlisting}
+
+\subsection{Merging Dictionaries}
+Python 3.9+:
+\begin{lstlisting}[language=Python]
+	d1 = {"a": 1, "b": 2}
+	d2 = {"b": 3, "c": 4}
+	merged = d1 | d2
+	# Output: {'a': 1, 'b': 3, 'c': 4}
+\end{lstlisting}
+
+Before Python 3.9:
+\begin{lstlisting}[language=Python]
+	merged = {**d1, **d2}
+\end{lstlisting}
+
+\subsection{Nested Dictionaries}
+\begin{lstlisting}[language=Python]
+	students = {
+		"Alice": {"math": 90, "science": 85},
+		"Bob": {"math": 78, "science": 82}
+	}
+	print(students["Alice"]["math"])  # Output: 90
+\end{lstlisting}
+
+\subsection{Inverting Dictionaries}
+\begin{lstlisting}[language=Python]
+	d = {"a": 1, "b": 2, "c": 3}
+	inv = {v: k for k, v in d.items()}
+	print(inv)
+	# Output: {1: 'a', 2: 'b', 3: 'c'}
+\end{lstlisting}
+
+\subsection{Using \texttt{defaultdict} for Automatic Values}
+\begin{lstlisting}[language=Python]
+	from collections import defaultdict
+	dd = defaultdict(int)
+	dd["x"] += 1
+	print(dd)  
+	# Output: defaultdict(<class 'int'>, {'x': 1})
+\end{lstlisting}
+
+\subsection{Sorting Dictionaries}
+\begin{lstlisting}[language=Python]
+	# Sort by keys
+	sorted_by_keys = dict(sorted(d.items()))
+	
+	# Sort by values
+	sorted_by_values = dict(sorted(d.items(), key=lambda item: item[1]))
+\end{lstlisting}
+
+\section{Summary}
+\begin{itemize}
+	\item Dictionaries store unique keys with associated values.
+	\item \texttt{.keys()}, \texttt{.values()}, and \texttt{.items()} return live views.
+	\item Keys must be immutable, values can be any type.
+	\item Advanced features include comprehensions, merging, nested structures, and sorting.
+\end{itemize}

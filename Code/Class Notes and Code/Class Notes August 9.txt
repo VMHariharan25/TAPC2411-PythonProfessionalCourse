@@ -1,0 +1,61 @@
+## Dictionary 
+A dictionary is a collection of key-value pairs. Each key is unique and maps to a value. Dictionaries are mutable, meaning you can change their content.
+
+
+# Example of a dictionary
+d = {"a": 1, "e": 2, "i": 3, "o": 4, "u": 5}
+
+>>> d = {"a": 1, "e": 2, "i": 3, "o": 4, "u": 5}
+>>> d
+{'a': 1, 'e': 2, 'i': 3, 'o': 4, 'u': 5}
+>>> d.keys()
+dict_keys(['a', 'e', 'i', 'o', 'u'])
+>>> type(d.keys())
+<class 'dict_keys'>
+>>> ls = list(d.keys())
+>>> ks
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'ks' is not defined. Did you mean: 'ls'?
+>>> ls
+['a', 'e', 'i', 'o', 'u']
+>>> d["z"] = 9
+>>> d
+{'a': 1, 'e': 2, 'i': 3, 'o': 4, 'u': 5, 'z': 9}
+>>> ls
+['a', 'e', 'i', 'o', 'u']
+>>> d.keys()
+dict_keys(['a', 'e', 'i', 'o', 'u', 'z'])
+>>> l = d.keys()
+>>> d["y"] = 10
+>>> l
+dict_keys(['a', 'e', 'i', 'o', 'u', 'z', 'y'])
+
+## l <- d.keys() --> Makes it as live active variable 
+    Any Change in keys of d would reflect in l 
+
+
+dir(dictionary Variable): 
+>>> dir(d)
+['__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__ior__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__ror__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+
+Methods associated with dictionary:
+- 'keys()': Returns a view object that displays a list of all the keys in the dictionary.
+- 'values()': Returns a view object that displays a list of all the values in the dictionary.
+- 'fromkeys()': Creates a new dictionary with keys from an iterable and values set to a specified value. Example: `dict.fromkeys(['a', 'b', 'c'], 0)` creates a dictionary with keys 'a', 'b', 'c' and all values set to 0.
+- 'items()': Returns a view object that displays a list of dictionary's key-value tuple pairs. List of tuples of key-value pairs.
+- 'update()': Updates the dictionary with elements from another dictionary or from an iterable of key-value pairs. Example: `d.update({'x': 6, 'y': 7})` adds 'x' and 'y' to the dictionary.
+
+Loops and Dictionaries:
+>>> for i in d:
+...     print(i)
+...
+a
+e
+i
+o
+u
+z
+y
+
+

@@ -1,0 +1,68 @@
+#Functions in Python 
+    --> Functions are set of code blocks that are used by various programs to perform a specific task.
+    --> Functions: Input, Output, Process
+    --> Functions are reusable code blocks that can be called multiple times in a program.
+    --> Two important perspectives of functions:
+        1. Function Definition: How to define a function.
+            a. Input: Actual parameters (AKA, Parameters)
+            b. Output: Return value
+        2. Function Call: How to call a function. (Simply, Invoking the function) 
+            a. Input: Arguments (AKA, formal parameters)
+            b. Return value of the function is assigned to a variable or place holder. 
+
+Syntax of Function Definition:
+    def function_name(parameters):
+        # code block
+        return value
+
+Main Example 1: 
+def add_numbers(p, q): 
+    sum = p + q 
+    return sum 
+
+# Function Call Statements: 
+Example 1: 
+a= 5 
+b = 10 
+result = add_numbers(a, b)
+print(f"The sum of {a} and {b} is: {result}")
+
+Example 2:
+print("The sum of %d and %d is: %d" % (a, b, add_numbers(a, b))) # Place holder is %d
+
+Parameters and Arguments:
+    --> Parameters are the variables defined in the function definition.
+    --> Arguments are the actual values passed to the function when it is called.
+    --> Parameters are placeholders, while arguments are the actual data.
+    --> In the example, `p` and `q` are parameters, while `a` and `b` are arguments.
+    --> Important Rules to be applied: 
+        1. The number of arguments passed must match the number of parameters defined in the function.
+        2. The order of arguments must match the order of parameters.
+        3. Arguments can be passed by position or by keyword.
+
+Main Example 2:
+# Subtraction of two numbers
+def subtract_numbers(p, q): 
+    difference = p - q 
+    return difference   
+
+# Function Call Statements:
+x = 15
+y = 5
+result_subtract = subtract_numbers(x, y)
+print(f"The difference between {x} and {y} is: {result_subtract}")
+
+>>> subtract_numbers(15,5)
+10
+>>> subtract_numbers(5,15)
+-10
+>>> subtract_numbers(q = 5, p = 15)
+10
+
+
+# Main Example 3:
+# Subtraction of two numbers
+def subtract_numbers(p, q = 1): # Default value for q is 1
+    difference = p - q 
+    return difference  
+

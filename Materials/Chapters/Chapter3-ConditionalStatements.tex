@@ -1,0 +1,190 @@
+\chapter{Conditional Statements in Python}
+\label{ch:conditional_statements}
+
+Conditional statements let your Python programs make decisions and control the flow of execution based on whether certain conditions are \textbf{true} or \textbf{false}. They are a fundamental part of programming and real-world problem solving.
+
+\section{Introduction to Conditional Statements}
+
+Python provides several types of conditional statements:
+\begin{itemize}
+    \item \texttt{if}
+    \item \texttt{if-else}
+    \item \texttt{if-elif-else}
+    \item Nested \texttt{if-else}
+\end{itemize}
+
+\subsection*{Note: Indentation in Python}
+
+Indentation in Python is critical. It shows which lines of code belong to which code blocks.
+\begin{itemize}
+    \item \textbf{Default indentation}: 1 tab \emph{or} 4 spaces (may vary by system).
+    \item \textbf{Rule}: Use consistent indentation in the same block.
+\end{itemize}
+\textbf{Example:}
+\begin{verbatim}
+if condition:
+    statement1
+    statement2
+\end{verbatim}
+Here, \texttt{statement1} and \texttt{statement2} will be executed only if the condition is true.
+
+\section{The \texttt{if} Statement}
+
+The simplest decision-making statement in Python is the \texttt{if} statement.
+
+\subsection*{Syntax}
+\begin{verbatim}
+if <relational expression>:
+    # Block of code (executed if condition is True)
+    Line 1
+    Line 2
+    ...
+\end{verbatim}
+
+\subsection*{Example 1: Checking Zero}
+\begin{verbatim}
+number = input("Enter the number: ")
+# The input function returns a string.
+number = int(number)     # Convert to integer
+
+if number == 0:
+    print("Entered Number is ZERO")
+\end{verbatim}
+\textit{If the user enters 0, ``Entered Number is ZERO'' is printed.}
+
+
+\section{Truthy and Falsy Values}
+
+In Python, certain values are considered ``true'' or ``false'' in conditions (e.g., 0~$\rightarrow$~False, nonzero~$\rightarrow$~True).
+
+\subsection*{Example 2: Truthy/Falsy Check}
+\begin{verbatim}
+number = input("Enter the number: ")
+number = int(number)
+
+if number:
+    print("Entered Number is not ZERO")
+
+if not number:
+    print("Entered Number is ZERO")
+\end{verbatim}
+\textit{When \texttt{number} is 0, only the second block executes. Otherwise, the first block executes.}
+
+
+\section{The \texttt{if-else} Statement}
+
+The \texttt{if-else} statement allows one block (if) when true, another (\texttt{else}) when false.
+
+\subsection*{Syntax}
+\begin{verbatim}
+if <condition>:
+    # true block
+else:
+    # false block
+\end{verbatim}
+
+\subsection*{Example 3: Zero or Not}
+\begin{verbatim}
+number = input("Enter the number: ")
+number = int(number)
+if number == 0:
+    print("Entered Number is ZERO")
+else:
+    print("Entered Number is not ZERO")
+\end{verbatim}
+
+
+\section{The \texttt{if-elif-else} Statement}
+
+For multiple conditions, use \texttt{if-elif-else}.
+
+\subsection*{Syntax}
+\begin{verbatim}
+if <condition1>:
+    # block 1
+elif <condition2>:
+    # block 2
+else:
+    # block 3
+\end{verbatim}
+
+\subsection*{Example 4: Zero, One, or Others}
+\begin{verbatim}
+number = input("Enter the number: ")
+number = int(number)
+
+if number == 0:
+    print("Entered Number is ZERO")
+elif number == 1:
+    print("Entered Number is ONE")
+else:
+    print("Others")
+\end{verbatim}
+
+\section{Practical Examples}
+
+\subsection*{Example 5: Multiple Divisibility Checks}
+\begin{verbatim}
+number = input("Enter the number: ")
+number = int(number)
+
+if number % 2 == 0:
+    print("Twilight")
+elif number % 3 == 0:
+    print("SQL")
+else:
+    print("PYTHON")
+\end{verbatim}
+\textit{Checks for divisibility by 2 (Twilight), 3 (SQL), or otherwise outputs PYTHON.}
+
+
+\section{Nested \texttt{if-else} Statements}
+
+Statements can be nested for more complex logic.
+
+\subsection*{Syntax}
+\begin{verbatim}
+if <condition1>:
+    if <condition2>:
+        # Block A
+    else:
+        # Block B
+else:
+    # Block C
+\end{verbatim}
+
+\subsection*{Example 6: Multiple Divisibility with Nesting}
+\begin{verbatim}
+number = input("Enter the number: ")
+number = int(number)
+
+if number % 2 == 0:
+    if number % 3 == 0:
+        print("The number is divisible by 6")
+    elif number % 5 == 0:
+        print("The number is divisible by 10")
+\end{verbatim}
+\textit{Checks for divisibility by 6 or 10, only if the number is even.}
+
+
+\section{Summary}
+
+\begin{itemize}
+    \item \texttt{if}: For single conditions.
+    \item \texttt{if-else}: For two-way branching.
+    \item \texttt{if-elif-else}: For multiple branches.
+    \item \textbf{Indentation} is essential in Python for defining code blocks.
+    \item Use nesting for complex decision logic.
+\end{itemize}
+
+Practice writing conditional statements to master this essential concept!
+
+\section*{Exercises}
+
+\begin{enumerate}
+    \item Write a program that accepts marks from the user and prints ``Pass'' if marks are greater than or equal to 35, otherwise prints ``Fail''.
+    \item Write a program to check if a number is positive, negative, or zero.
+    \item Write a program to check if a number is odd, even, or zero.
+\end{enumerate}
+
+Conditional statements give Python programs the ability to make decisions and adapt to different situations. Master them to become a better Python programmer!

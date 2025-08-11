@@ -1,0 +1,138 @@
+\chapter{Tuples}
+
+\section{Introduction}
+A \textbf{tuple} in Python is an ordered, immutable collection of elements. Unlike lists, tuples cannot be modified once created. This immutability makes tuples useful for storing fixed sets of values and for use as keys in dictionaries (if they contain only immutable elements).
+
+Tuples are defined by enclosing elements in \texttt{()} parentheses, separated by commas.
+
+\section{Creating Tuples}
+You can create tuples in several ways:
+
+\begin{verbatim}
+	# Empty tuple
+	t1 = ()
+	
+	# Tuple with multiple elements
+	t2 = (1, 2, 3)
+	
+	# Tuple without parentheses (tuple packing)
+	t3 = 1, 2, 3
+	
+	# Single-element tuple (comma is required)
+	t4 = (1,)
+	
+	# Using tuple() constructor
+	t5 = tuple([1, 2, 3])
+\end{verbatim}
+
+\section{Accessing Tuple Elements}
+Tuple elements can be accessed using indexing and slicing.
+
+\begin{verbatim}
+	t = (10, 20, 30, 40, 50)
+	
+	# Access first element
+	print(t[0])  # Output: 10
+	
+	# Access last element
+	print(t[-1]) # Output: 50
+	
+	# Slicing
+	print(t[1:4])  # Output: (20, 30, 40)
+\end{verbatim}
+
+\section{Tuple Immutability}
+Once created, tuple elements cannot be changed, added, or removed.
+
+\begin{verbatim}
+	t = (1, 2, 3)
+	t[0] = 10  # Error: TypeError: 'tuple' object does not support item assignment
+\end{verbatim}
+
+However, if a tuple contains mutable objects (like lists), those mutable objects can be modified.
+
+\begin{verbatim}
+	t = ([1, 2], [3, 4])
+	t[0].append(5)
+	print(t)  # Output: ([1, 2, 5], [3, 4])
+\end{verbatim}
+
+\section{Tuple Operations}
+Tuples support many of the same operations as lists, except for those that modify the data.
+
+\subsection{Concatenation}
+\begin{verbatim}
+	t1 = (1, 2)
+	t2 = (3, 4)
+	print(t1 + t2)  # Output: (1, 2, 3, 4)
+\end{verbatim}
+
+\subsection{Repetition}
+\begin{verbatim}
+	t = (1, 2)
+	print(t * 3)  # Output: (1, 2, 1, 2, 1, 2)
+\end{verbatim}
+
+\subsection{Membership}
+\begin{verbatim}
+	t = (1, 2, 3)
+	print(2 in t)   # Output: True
+	print(5 not in t) # Output: True
+\end{verbatim}
+
+\section{Tuple Functions and Methods}
+\begin{itemize}
+	\item \texttt{len(tuple)}: Returns the number of elements in the tuple.
+	\item \texttt{max(tuple)}: Returns the maximum element.
+	\item \texttt{min(tuple)}: Returns the minimum element.
+	\item \texttt{sum(tuple)}: Returns the sum of elements (numeric tuples only).
+	\item \texttt{tuple.count(value)}: Counts the number of occurrences of \texttt{value}.
+	\item \texttt{tuple.index(value)}: Returns the index of the first occurrence of \texttt{value}.
+\end{itemize}
+
+\begin{verbatim}
+	t = (10, 20, 30, 20)
+	print(len(t))      # Output: 4
+	print(max(t))      # Output: 30
+	print(min(t))      # Output: 10
+	print(t.count(20)) # Output: 2
+	print(t.index(30)) # Output: 2
+\end{verbatim}
+
+\section{Tuple Packing and Unpacking}
+Tuples allow \textbf{packing} multiple values into one variable and \textbf{unpacking} them back into separate variables.
+
+\begin{verbatim}
+	# Packing
+	t = 1, 2, 3
+	
+	# Unpacking
+	a, b, c = t
+	print(a, b, c)  # Output: 1 2 3
+\end{verbatim}
+
+\section{Nested Tuples}
+Tuples can contain other tuples as elements.
+
+\begin{verbatim}
+	t = (1, (2, 3), (4, 5, 6))
+	print(t[1])    # Output: (2, 3)
+	print(t[1][0]) # Output: 2
+\end{verbatim}
+
+\section{Use Cases of Tuples}
+\begin{enumerate}
+	\item Storing related data that should not change.
+	\item As keys in dictionaries (if all elements are immutable).
+	\item Returning multiple values from a function.
+	\item Fixed-size records in databases.
+\end{enumerate}
+
+\section{Summary}
+\begin{itemize}
+	\item Tuples are ordered, immutable collections.
+	\item Defined using parentheses or without parentheses (tuple packing).
+	\item Elements are accessed via indexing and slicing.
+	\item Support concatenation, repetition, and membership checks.
+	\item Often used for fixed, unchangeable collections of data.
+\end{itemize}
